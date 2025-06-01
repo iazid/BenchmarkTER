@@ -1,0 +1,30 @@
+{
+  "name": "benchmarknear",
+  "version": "1.0.0",
+  "license": "(MIT AND Apache-2.0)",
+  "type": "module",
+  "scripts": {
+    "build": "near-sdk-js build src/contract.ts build/contract.wasm",
+    "test": "$npm_execpath run build && ava -- ./build/contract.wasm",
+    "bench": "ts-node scripts/benchmarknear.ts",
+    "bench1": "ts-node scripts/mesure.ts",
+    "gas": "ts-node scripts/mesuregazcomplexite.ts",
+    "gastest": "ts-node scripts/mesuregaztest.ts"
+  },
+  "dependencies": {
+    "near-api-js": "^5.1.1",
+    "near-sdk-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.2",
+    "ava": "^6.1.3",
+    "near-workspaces": "^4.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "ava": {
+    "files": [
+      "sandbox-test/*.ava.js"
+    ]
+  }
+}
